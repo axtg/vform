@@ -1,14 +1,12 @@
 <template>
-  <div v-if="form.errors.any()" class="alert alert-danger alert-dismissible" role="alert">
-    <button v-if="dismissible" type="button" class="close" aria-label="Close" @click="dismiss">
-      <span aria-hidden="true">&times;</span>
-    </button>
+  <div v-if="form.errors.any()" class="message is-danger" role="alert">
+    <div class="message-content">
+      <div v-if="message" v-html="message"/>
 
-    <div v-if="message" v-html="message"/>
-
-    <ul>
-      <li v-for="error in form.errors.flatten()" v-html="error"/>
-    </ul>
+      <ul>
+        <li v-for="error in form.errors.flatten()" v-html="error"/>
+      </ul>
+    </div>
   </div>
 </template>
 
